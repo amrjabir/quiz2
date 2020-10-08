@@ -1,7 +1,9 @@
-// ###### querySelectors ######
+import { getDataJS, setDisplayNone, removeDisplayNone } from './lib'
+import setupDarkmode from './setupDarkmode'
 
-// ------ Select Body ------
-const body = getDataJS('body')
+setupDarkmode()
+
+// ###### querySelectors ######
 
 // ------ Select Header ------
 const headerHome = getDataJS('header-home')
@@ -17,7 +19,7 @@ const mainProfile = getDataJS('main-profile')
 
 // ------ Select Nav Icons ------
 const navIconHome = getDataJS('nav-icon--home')
-const navIconBookmarks = getDataJS((s = 'nav-icon--bookmarks'))
+const navIconBookmarks = getDataJS('nav-icon--bookmarks')
 const navIconCreate = getDataJS('nav-icon--create')
 const navIconProfile = getDataJS('nav-icon--profile')
 
@@ -25,17 +27,13 @@ const navIconProfile = getDataJS('nav-icon--profile')
 const bookmarkIcon = getDataJS('bookmark-icon')
 
 // ------ Select Answer Buttons and Answer Text------
-const showAnswerButton = getDataJS((s = 'show-answer-button'))
-const hideAnswerButton = getDataJS((s = 'hide-answer-button'))
+const showAnswerButton = getDataJS('show-answer-button')
+const hideAnswerButton = getDataJS('hide-answer-button')
 const answerText = getDataJS('answer-text')
 
 // ------ Select Form Submit Button and Text Inputs ------
-const formSubmitButton = getDataJS((s = 'form-submit-button'))
+const formSubmitButton = getDataJS('form-submit-button')
 const form = getDataJS('form')
-
-// ------ Select Dark and Light Mode Buttons ------
-const lightmodeButton = getDataJS('lightmode-button')
-const darkmodeButton = getDataJS('darkmode-button')
 
 // ###### CALL FUNCTIONS WITH ADDEVENTLISTENER ######
 
@@ -55,18 +53,7 @@ hideAnswerButton.addEventListener('click', hideAnswerSection)
 // ====== form submit button with arrow function to reset form ======
 formSubmitButton.addEventListener('click', () => form.reset())
 
-// ====== dark and lightmode buttons to switch between modes ======
-lightmodeButton.addEventListener('click', switchToLightmode)
-darkmodeButton.addEventListener('click', switchToDarkmode)
-
 // ###### FUNCTION DECLARATIONS ######
-
-// ====== function getDataJS ======
-
-function getDataJS(name) {
-  const selector = `[data-js="${name}"]`
-  return document.querySelector(selector)
-}
 
 // ====== function declarations for navigation ======
 
@@ -96,15 +83,15 @@ function navigateToProfile() {
 
 // ====== function hide all pages ======
 function hideAllPages() {
-  displayNone(headerHome)
-  displayNone(headerBookmarks)
-  displayNone(headerCreate)
-  displayNone(headerProfile)
+  setDisplayNone(headerHome)
+  setDisplayNone(headerBookmarks)
+  setDisplayNone(headerCreate)
+  setDisplayNone(headerProfile)
 
-  displayNone(mainHome)
-  displayNone(mainBookmarks)
-  displayNone(mainCreate)
-  displayNone(mainProfile)
+  setDisplayNone(mainHome)
+  setDisplayNone(mainBookmarks)
+  setDisplayNone(mainCreate)
+  setDisplayNone(mainProfile)
 
   deactivateIcon(navIconHome)
   deactivateIcon(navIconBookmarks)
@@ -115,8 +102,8 @@ function hideAllPages() {
 // ====== function to show all parts of a page ======
 
 function showPage(headerPageName, mainPageName, navIconPageName) {
-  display(headerPageName)
-  display(mainPageName)
+  removeDisplayNone(headerPageName)
+  removeDisplayNone(mainPageName)
   activateIcon(navIconPageName)
 }
 
@@ -135,36 +122,12 @@ function toggleBookmarkIcon() {
 
 // ====== show and hide answer section ======
 function showAnswerSection() {
-  display(answerText)
-  display(hideAnswerButton)
-  displayNone(showAnswerButton)
+  removeDisplayNone(answerText)
+  removeDisplayNone(hideAnswerButton)
+  setDisplayNone(showAnswerButton)
 }
 function hideAnswerSection() {
-  displayNone(answerText)
-  displayNone(hideAnswerButton)
-  display(showAnswerButton)
-}
-
-// ====== switch color theme to lightmode/darkmode ======
-
-function switchToDarkmode() {
-  displayNone(darkmodeButton)
-  display(lightmodeButton)
-  body.classList.add('darkmode')
-  body.classList.remove('lightmode')
-}
-
-function switchToLightmode() {
-  display(darkmodeButton)
-  displayNone(lightmodeButton)
-  body.classList.remove('darkmode')
-  body.classList.add('lightmode')
-}
-
-// ====== displayNone and display ======
-function displayNone(selector) {
-  selector.classList.add('d-none')
-}
-function display(selector) {
-  selector.classList.remove('d-none')
+  setDisplayNone(answerText)
+  setDisplayNone(hideAnswerButton)
+  removeDisplayNone(showAnswerButton)
 }
