@@ -1,9 +1,4 @@
-import {
-  getDataJS,
-  getAllDataJS,
-  setDisplayNone,
-  removeDisplayNone,
-} from './lib'
+import { getAllDataJS, setDisplayNone, removeDisplayNone } from './lib'
 
 export default function setupCards() {
   const cards = getAllDataJS('card')
