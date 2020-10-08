@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>Quiz-App | Home</title>
+    <script defer src="js/main.js"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles/styles.css" />
-    <title>Quiz-App | Home</title>
   </head>
   <body data-js="body" class="lightmode">
     <!-- ========================== Header ========================== -->
     <!-- ------ Header Main ------ -->
     <header data-js="header-home" class="header center">
       <h1 class="header__title">Quiz-App</h1>
-      <script defer src="js/main.js"></script>
     </header>
     <!-- ------ Header Bookmarks ------ -->
     <header data-js="header-bookmarks" class="header center d-none">
@@ -31,7 +31,7 @@
     <!-- ========================== Main  ========================== -->
     <!-- ------ Main Home ------ -->
     <main data-js="main-home" class="main-grid--1column">
-      <section class="card">
+      <section class="card" data-js="card">
         <h2 class="card__title">Question:</h2>
         <svg
           data-js="bookmark-icon"
@@ -47,11 +47,12 @@
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
           Exercitationem non, architecto commodi quod id asper?
         </p>
+
         <button data-js="show-answer-button" class="button">Show Answer</button>
         <button data-js="hide-answer-button" class="button button--hide d-none">
           Hide Answer
         </button>
-        <p data-js="answer-text" class="card__text d-none">
+        <p data-js="answer" class="card__text d-none">
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
           Exercitationem non, architecto commodi quod id asper?
         </p>
@@ -62,36 +63,10 @@
           <li class="tag-list__item">BEM</li>
         </ul>
       </section>
-      <section class="card">
+      <section class="card" data-js="card">
         <h2 class="card__title">Question:</h2>
         <svg
-          class="card__bookmark-icon card__bookmark-icon--active"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z"
-          />
-        </svg>
-        <p class="card__text">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Exercitationem non, architecto commodi quod id asper?
-        </p>
-        <button class="button">Show Answer</button>
-        <p class="card__text d-none">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Exercitationem non, architecto commodi quod id asper?
-        </p>
-        <ul class="tag-list">
-          <li class="tag-list__item">CSS</li>
-          <li class="tag-list__item">HTML</li>
-          <li class="tag-list__item">Position</li>
-          <li class="tag-list__item">BEM</li>
-        </ul>
-      </section>
-      <section class="card">
-        <h2 class="card__title">Question:</h2>
-        <svg
+          data-js="bookmark-icon"
           class="card__bookmark-icon"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -104,8 +79,12 @@
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
           Exercitationem non, architecto commodi quod id asper?
         </p>
-        <button class="button">Show Answer</button>
-        <p class="card__text d-none">
+
+        <button data-js="show-answer-button" class="button">Show Answer</button>
+        <button data-js="hide-answer-button" class="button button--hide d-none">
+          Hide Answer
+        </button>
+        <p data-js="answer" class="card__text d-none">
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
           Exercitationem non, architecto commodi quod id asper?
         </p>
@@ -116,9 +95,10 @@
           <li class="tag-list__item">BEM</li>
         </ul>
       </section>
-      <section class="card">
+      <section class="card" data-js="card">
         <h2 class="card__title">Question:</h2>
         <svg
+          data-js="bookmark-icon"
           class="card__bookmark-icon"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -131,8 +111,44 @@
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
           Exercitationem non, architecto commodi quod id asper?
         </p>
-        <button class="button">Show Answer</button>
-        <p class="card__text d-none">
+
+        <button data-js="show-answer-button" class="button">Show Answer</button>
+        <button data-js="hide-answer-button" class="button button--hide d-none">
+          Hide Answer
+        </button>
+        <p data-js="answer" class="card__text d-none">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Exercitationem non, architecto commodi quod id asper?
+        </p>
+        <ul class="tag-list">
+          <li class="tag-list__item">CSS</li>
+          <li class="tag-list__item">HTML</li>
+          <li class="tag-list__item">Position</li>
+          <li class="tag-list__item">BEM</li>
+        </ul>
+      </section>
+      <section class="card" data-js="card">
+        <h2 class="card__title">Question:</h2>
+        <svg
+          data-js="bookmark-icon"
+          class="card__bookmark-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z"
+          />
+        </svg>
+        <p class="card__text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Exercitationem non, architecto commodi quod id asper?
+        </p>
+
+        <button data-js="show-answer-button" class="button">Show Answer</button>
+        <button data-js="hide-answer-button" class="button button--hide d-none">
+          Hide Answer
+        </button>
+        <p data-js="answer" class="card__text d-none">
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
           Exercitationem non, architecto commodi quod id asper?
         </p>
@@ -146,10 +162,11 @@
     </main>
     <!-- ------ Main Bookmarks ------ -->
     <main data-js="main-bookmarks" class="main-grid--1column d-none">
-      <section class="card">
+      <section class="card" data-js="card">
         <h2 class="card__title">Question:</h2>
         <svg
-          class="card__bookmark-icon card__bookmark-icon--active"
+          data-js="bookmark-icon"
+          class="card__bookmark-icon"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
         >
@@ -161,8 +178,12 @@
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
           Exercitationem non, architecto commodi quod id asper?
         </p>
-        <button class="button">Show Answer</button>
-        <p class="card__text d-none">
+
+        <button data-js="show-answer-button" class="button">Show Answer</button>
+        <button data-js="hide-answer-button" class="button button--hide d-none">
+          Hide Answer
+        </button>
+        <p data-js="answer" class="card__text d-none">
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
           Exercitationem non, architecto commodi quod id asper?
         </p>
@@ -173,10 +194,11 @@
           <li class="tag-list__item">BEM</li>
         </ul>
       </section>
-      <section class="card">
+      <section class="card" data-js="card">
         <h2 class="card__title">Question:</h2>
         <svg
-          class="card__bookmark-icon card__bookmark-icon--active"
+          data-js="bookmark-icon"
+          class="card__bookmark-icon"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
         >
@@ -188,8 +210,12 @@
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
           Exercitationem non, architecto commodi quod id asper?
         </p>
-        <button class="button">Show Answer</button>
-        <p class="card__text d-none">
+
+        <button data-js="show-answer-button" class="button">Show Answer</button>
+        <button data-js="hide-answer-button" class="button button--hide d-none">
+          Hide Answer
+        </button>
+        <p data-js="answer" class="card__text d-none">
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
           Exercitationem non, architecto commodi quod id asper?
         </p>
