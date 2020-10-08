@@ -5,8 +5,15 @@ import {
   removeDisplayNone,
 } from './lib'
 
-export default function setUpNavigation() {}
+export default function setUpNavigation() {
+  const navIcons = document.querySelectorAll('[data-js="navigation"] > *')
+  navLinks.forEach(addNavigationLogic)
+}
 
+function addNavigationLogic(navLink) {}
+
+const pages = getAllDataJS('page')
+const headers = getAllDataJS('header')
 ////////////////OLD CODE
 
 // ------ Select Header ------
