@@ -1,9 +1,4 @@
-import {
-  getDataJS,
-  getAllDataJS,
-  setDisplayNone,
-  removeDisplayNone,
-} from './lib'
+import { getAllDataJS } from './lib'
 
 export default function setUpNavigation() {
   const navLinks = getAllDataJS('navigation-link')
