@@ -12,9 +12,8 @@ export default function setUpNavigation() {
   }
 
   function updateNavigation(event) {
-    const clickedLink = event.target
+    const clickedLink = event.currentTarget
     const targetName = clickedLink.dataset.name
-    console.log(event.target.dataset.name)
     updatePage()
     updateHeader()
     updateNavLinks()
