@@ -2,23 +2,15 @@ import { getDataJS, setDisplayNone, removeDisplayNone } from './lib'
 
 export default function setupDarkmode() {
   const body = getDataJS('body')
-  const lightmodeButton = getDataJS('lightmode-button')
   const darkmodeButton = getDataJS('darkmode-button')
 
-  lightmodeButton.addEventListener('click', switchToLightmode)
-  darkmodeButton.addEventListener('click', switchToDarkmode)
+  darkmodeButton.addEventListener('click', toggleDarkmode)
 
-  function switchToDarkmode() {
-    setDisplayNone(darkmodeButton)
-    removeDisplayNone(lightmodeButton)
-    body.classList.add('darkmode')
-    body.classList.remove('lightmode')
-  }
+  function toggleDarkmode() {
+    const oldText = darkmodeButton.textContent.trim().toLowerCase()
+    darkmodeButton.textContent =
+      oldText === 'darkmode' ? 'lightmode' : 'darkmode'
 
-  function switchToLightmode() {
-    removeDisplayNone(darkmodeButton)
-    setDisplayNone(lightmodeButton)
-    body.classList.remove('darkmode')
-    body.classList.add('lightmode')
+    body.classList.toggle('darkmode', oldText === 'darkmode')
   }
 }

@@ -22,20 +22,16 @@ function toggleBookmarkIcon(event) {
 
 //Answer Logic
 function addAnswerLogic(card) {
-  const showAnswerButton = card.querySelector('[data-js="show-answer-button"]')
+  const answerButton = card.querySelector('[data-js="show-answer-button"]')
   const hideAnswerButton = card.querySelector('[data-js="hide-answer-button"]')
   const answer = card.querySelector('[data-js="answer"]')
-  showAnswerButton.addEventListener('click', showAnswer)
-  hideAnswerButton.addEventListener('click', hideAnswer)
+  answerButton.addEventListener('click', showAnswer)
 
   function showAnswer() {
-    removeDisplayNone(answer)
-    removeDisplayNone(hideAnswerButton)
-    setDisplayNone(showAnswerButton)
-  }
-  function hideAnswer() {
-    setDisplayNone(answer)
-    setDisplayNone(hideAnswerButton)
-    removeDisplayNone(showAnswerButton)
+    const oldText = answerButton.textContent.trim().toLowerCase()
+    answerButton.textContent =
+      oldText === 'show answer' ? 'hide answer' : 'show answer'
+
+    answer.classList.toggle('d-none', oldText === 'hide answer')
   }
 }
