@@ -11,6 +11,7 @@ export default function setUpNavigation() {
     navLink.addEventListener('click', updateNavigation)
   }
 
+
   function updateNavigation(event) {
     const clickedLink = event.currentTarget
     const targetName = clickedLink.dataset.name
@@ -27,12 +28,19 @@ export default function setUpNavigation() {
       }
     }
 
-    function updateHeader() {
-      headers.forEach(toggleDisplayNone)
+    function updateHeader(header) {
+      switch(targetName) {
+        case 'home':
+          header.text
+          break
 
-      function toggleDisplayNone(header) {
-        const headerName = header.dataset.name
-        header.classList.toggle('d-none', headerName !== targetName)
+
+      }
+      // headers.forEach(toggleDisplayNone)
+
+      // function toggleDisplayNone(header) {
+      //   const headerName = header.dataset.name
+      //   header.classList.toggle('d-none', headerName !== targetName)
       }
     }
 
