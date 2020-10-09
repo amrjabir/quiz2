@@ -6,96 +6,49 @@ import {
 } from './lib'
 
 export default function setUpNavigation() {
-  const navIcons = document.querySelectorAll('[data-js="navigation"] > *')
+  const navLinks = getAllDataJS('navigation-link')
+  const pages = getAllDataJS('page')
+  const headers = getAllDataJS('header')
+
   navLinks.forEach(addNavigationLogic)
-}
 
-function addNavigationLogic(navLink) {}
+  function addNavigationLogic(navLink) {
+    navLink.addEventListener('click', updateNavigation)
+  }
 
-const pages = getAllDataJS('page')
-const headers = getAllDataJS('header')
-////////////////OLD CODE
+  function updateNavigation(event) {
+    const clickedLink = event.target
+    const targetName = clickedLink.dataset.name
+    console.log(event.target.dataset.name)
+    updatePage()
+    updateHeader()
+    updateNavLinks()
 
-// ------ Select Header ------
-const headerHome = getDataJS('header-home')
-const headerBookmarks = getDataJS('header-bookmarks')
-const headerCreate = getDataJS('header-create')
-const headerProfile = getDataJS('header-profile')
+    function updatePage() {
+      pages.forEach(toggleDisplayNone)
 
-// ------ Select Main ------
-const mainHome = getDataJS('main-home')
-const mainBookmarks = getDataJS('main-bookmarks')
-const mainCreate = getDataJS('main-create')
-const mainProfile = getDataJS('main-profile')
+      function toggleDisplayNone(page) {
+        const pageName = page.dataset.name
+        page.classList.toggle('d-none', pageName !== targetName)
+      }
+    }
 
-// ------ Select Nav Icons ------
-const navIconHome = getDataJS('nav-icon--home')
-const navIconBookmarks = getDataJS('nav-icon--bookmarks')
-const navIconCreate = getDataJS('nav-icon--create')
-const navIconProfile = getDataJS('nav-icon--profile')
+    function updateHeader() {
+      headers.forEach(toggleDisplayNone)
 
-// ====== EventListener for navigation icons to display/hide pages ======
-navIconHome.addEventListener('click', navigateToHome)
-navIconBookmarks.addEventListener('click', navigateToBookmarks)
-navIconCreate.addEventListener('click', navigateToCreate)
-navIconProfile.addEventListener('click', navigateToProfile)
+      function toggleDisplayNone(header) {
+        const headerName = header.dataset.name
+        header.classList.toggle('d-none', headerName !== targetName)
+      }
+    }
 
-// ====== function declarations for navigation ======
-
-// ------ navigate to home page ------
-function navigateToHome() {
-  hideAllPages()
-  showPage(headerHome, mainHome, navIconHome)
-}
-
-// ------ navigate to bookmarks page ------
-function navigateToBookmarks() {
-  hideAllPages()
-  showPage(headerBookmarks, mainBookmarks, navIconBookmarks)
-}
-
-// ------ navigate to create page ------
-function navigateToCreate() {
-  hideAllPages()
-  showPage(headerCreate, mainCreate, navIconCreate)
-}
-
-// ------ navigate to profile page ------
-function navigateToProfile() {
-  hideAllPages()
-  showPage(headerProfile, mainProfile, navIconProfile)
-}
-
-// ====== function hide all pages ======
-function hideAllPages() {
-  setDisplayNone(headerHome)
-  setDisplayNone(headerBookmarks)
-  setDisplayNone(headerCreate)
-  setDisplayNone(headerProfile)
-
-  setDisplayNone(mainHome)
-  setDisplayNone(mainBookmarks)
-  setDisplayNone(mainCreate)
-  setDisplayNone(mainProfile)
-
-  deactivateIcon(navIconHome)
-  deactivateIcon(navIconBookmarks)
-  deactivateIcon(navIconCreate)
-  deactivateIcon(navIconProfile)
-}
-
-// ====== function to show all parts of a page ======
-
-function showPage(headerPageName, mainPageName, navIconPageName) {
-  removeDisplayNone(headerPageName)
-  removeDisplayNone(mainPageName)
-  activateIcon(navIconPageName)
-}
-
-// ====== activate and deactivate navigation icon ======
-function activateIcon(selector) {
-  selector.classList.add('navigation__icon--active')
-}
-function deactivateIcon(selector) {
-  selector.classList.remove('navigation__icon--active')
+    function updateNavLinks() {
+      navLinks.forEach((navLink) => {
+        navLink.classList.toggle(
+          'navigation__icon--active',
+          navLink === clickedLink
+        )
+      })
+    }
+  }
 }

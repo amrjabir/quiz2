@@ -10,27 +10,27 @@
   <body data-js="body" class="lightmode">
     <!-- ========================== Header ========================== -->
     <!-- ------ Header Main ------ -->
-    <header data-js="header header-home" class="header center">
+    <header data-js="header" data-name="home" class="header center">
       <h1 class="header__title">Quiz-App</h1>
     </header>
     <!-- ------ Header Bookmarks ------ -->
-    <header data-js="header header-bookmarks" class="header center d-none">
+    <header data-js="header" data-name="bookmarks" class="header center d-none">
       <h1 class="header__title">Bookmarks</h1>
     </header>
 
     <!-- ------ Header Create ------ -->
-    <header data-js="header header-create" class="header center d-none">
+    <header data-js="header" data-name="create" class="header center d-none">
       <h1 class="header__title">Create</h1>
     </header>
 
     <!-- ------ Header Profile ------ -->
-    <header data-js="header header-profile" class="header center d-none">
+    <header data-js="header" data-name="profile" class="header center d-none">
       <h1 class="header__title">Profile</h1>
     </header>
 
-    <!-- ========================== Main  ========================== -->
-    <!-- ------ Main Home ------ -->
-    <main data-js="page page-home" class="main-grid--1column">
+    <!-- ========================== Pages  ========================== -->
+    <!-- ------ Page Home ------ -->
+    <main data-js="page" data-name="home" class="main-grid--1column">
       <section class="card" data-js="card">
         <h2 class="card__title">Question:</h2>
         <svg
@@ -160,8 +160,12 @@
         </ul>
       </section>
     </main>
-    <!-- ------ Main Bookmarks ------ -->
-    <main data-js="page page-bookmarks" class="main-grid--1column d-none">
+    <!-- ------ Page Bookmarks ------ -->
+    <main
+      data-js="page"
+      data-name="bookmarks"
+      class="main-grid--1column d-none"
+    >
       <section class="card" data-js="card">
         <h2 class="card__title">Question:</h2>
         <svg
@@ -228,8 +232,8 @@
       </section>
     </main>
 
-    <!-- ------ Main Create ------ -->
-    <main data-js="page page-create" class="main-grid--1column d-none">
+    <!-- ------ Page Create ------ -->
+    <main data-js="page" data-name="create" class="main-grid--1column d-none">
       <form data-js="form" class="form" action="">
         <label for="textarea1"
           >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos
@@ -278,8 +282,8 @@
       </form>
     </main>
 
-    <!-- ------ Main Profile ------ -->
-    <main data-js="page page-profile" class="main-grid--2columns d-none">
+    <!-- ------ Page Profile ------ -->
+    <main data-js="page" data-name="profile" class="main-grid--2columns d-none">
       <img
         class="profile-picture"
         src="images/profile-picture.png"
@@ -313,7 +317,8 @@
     <!-- ========================== Footer ========================== -->
     <footer data-js="navigation" class="navigation">
       <svg
-        data-js="nav-icon--home"
+        data-js="navigation-link"
+        data-name="home"
         class="navigation__icon navigation__link center navigation__icon--active"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
@@ -321,7 +326,8 @@
         <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
       </svg>
       <svg
-        data-js="nav-icon--bookmarks"
+        data-js="navigation-link"
+        data-name="bookmarks"
         class="navigation__icon navigation__link center"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
@@ -330,7 +336,8 @@
       </svg>
 
       <svg
-        data-js="nav-icon--create"
+        data-js="navigation-link"
+        data-name="create"
         class="navigation__icon navigation__link center"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
@@ -341,7 +348,8 @@
       </svg>
 
       <svg
-        data-js="nav-icon--profile"
+        data-js="navigation-link"
+        data-name="profile"
         class="navigation__icon navigation__link center"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
