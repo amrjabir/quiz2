@@ -1,9 +1,9 @@
-import { getAllDataJS } from './lib'
+import { getDataJS, getAllDataJS } from './lib'
 
 export default function setUpNavigation() {
   const navLinks = getAllDataJS('navigation-link')
   const pages = getAllDataJS('page')
-  const headers = getAllDataJS('header')
+  const headerTitle = getDataJS('header-title')
 
   navLinks.forEach(addNavigationLogic)
 
@@ -28,21 +28,30 @@ export default function setUpNavigation() {
     }
 
     function updateHeader() {
-      headers.forEach(toggleDisplayNone)
-
-      function toggleDisplayNone(header) {
-        const headerName = header.dataset.name
-        header.classList.toggle('d-none', headerName !== targetName)
+      switch (targetName) {
+        case 'home':
+          headerTitle.textContent = 'Quiz-App'
+          break
+        case 'bookmarks':
+          headerTitle.textContent = 'Bookmarks'
+          break
+        case 'create':
+          headerTitle.textContent = 'Create'
+          break
+        case 'profile':
+          headerTitle.textContent = 'Profile'
+          break
       }
     }
 
     function updateNavLinks() {
-      navLinks.forEach((navLink) => {
+      navLinks.forEach(toggleNavLink)
+      function toggleNavLink(navLink) {
         navLink.classList.toggle(
           'navigation__icon--active',
           navLink === clickedLink
         )
-      })
+      }
     }
   }
 }
